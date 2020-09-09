@@ -11,7 +11,6 @@ import sys
 from discord.ext import commands
 from discord.ext.commands import CommandNotFound
 load_dotenv()
-
 class Reddit_commands(commands.Cog):
     def __init__(self,bot):
         self.bot=bot
@@ -21,11 +20,30 @@ class Reddit_commands(commands.Cog):
                     password = os.getenv('reddit_password'),
                     user_agent = "memebot"
                     )
+        self.nsfw_enabled=False
     def test(self,word):
         randomword=random.choice(word)
         gif_choice = random.randint(0, 9)
         return randomword,gif_choice
-    #reddit command
+    #reddit commands
+    @commands.command(name='nsfw',hidden=True)
+    async def Filter(self,ctx,option=''):
+        try:
+            if option=='disable':
+                self.nsfw_enabled=False
+                await ctx.send("NSFW subreddits are now disabled.")
+            elif option=='letmeseee':
+                self.nsfw_enabled=True
+                await ctx.send("NSFW subreddits are now enabled.")
+            elif option=='-i':
+                await ctx.send("NSFW subreddits are currently enabled" if self.nsfw_enabled else "NSFW subreddits are currently disabled")
+            elif option=='':
+                await ctx.send("We don't do that here.")
+        except:
+            print("error2")
+    	
+    	
+    
     @commands.command(name='reddit' ,help=' :summons pictures from reddit',aliases=['r'])
     async def meme(self,ctx,subred = "memes"):
         try:
@@ -42,9 +60,9 @@ class Reddit_commands(commands.Cog):
             emb = discord.Embed(title = name, url= url)
             emb.set_image(url = url)
             if subreddit.over18:
-                nsfw_enabled=False
+                
                 embed = discord.Embed(colour=discord.Colour.blue())
-                if not nsfw_enabled:
+                if not self.nsfw_enabled:
                     await ctx.send("NSFW content is disabled.")
                     word=['Go away']
                     randomword,gif_choice=self.test(word)
