@@ -66,7 +66,7 @@ class Reddit_commands(commands.Cog):
                     await ctx.send("NSFW content is disabled.")
                     word=['Go away']
                     randomword,gif_choice=self.test(word)
-                    response = await session.get('http://api.giphy.com/v1/gifs/search?q='+randomword+'&api_key='+os.getenv('Giphy_API_KEY')+'&limit=10')
+                    response = await session.get('http://api.giphy.com/v1/gifs/search?q='+randomword+'&api_key='+os.getenv('giphy_key')+'&limit=10')
                     data = json.loads(await response.text())
                     embed.set_image(url=data['data'][gif_choice]['images']['original']['url'])
                     await ctx.send(embed=embed)
@@ -91,7 +91,7 @@ class Reddit_commands(commands.Cog):
             session = aiohttp.ClientSession()
             word=['you+are+idiot','you+are+stupid','you+are+a+retard' ,'You+are+dumb','dumb','stupid','retard']
             randomword,gif_choice=self.test(word)
-            response = await session.get('http://api.giphy.com/v1/gifs/search?q='+randomword+'&api_key='+os.getenv('Giphy_API_KEY')+'&limit=10')
+            response = await session.get('http://api.giphy.com/v1/gifs/search?q='+randomword+'&api_key='+os.getenv('giphy_key')+'&limit=10')
             data = json.loads(await response.text())
             embed.set_image(url=data['data'][gif_choice]['images']['original']['url'])
             await session.close()
