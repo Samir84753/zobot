@@ -47,4 +47,5 @@ async def on_command_error(ctx, error):
 client.load_extension('cogs.reddit_commands')
 client.load_extension('cogs.gif_commands')
 client.load_extension('cogs.moderation')
+client.load_extension('cogs.fpl')
 client.run(os.getenv("discord_token"))
