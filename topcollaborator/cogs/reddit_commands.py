@@ -89,7 +89,7 @@ class Reddit_commands(commands.Cog):
             await ctx.send('Maybe there is no subreddit of that name. Try using a real subreddit name. ')
             embed = discord.Embed(colour=discord.Colour.blue())
             session = aiohttp.ClientSession()
-            word=['you+are+idiot','you+are+stupid','you+are+a+retard' ,'You+are+dumb','dumb','stupid','retard']
+            word=['God no','We dont do that here']
             randomword,gif_choice=self.test(word)
             response = await session.get('http://api.giphy.com/v1/gifs/search?q='+randomword+'&api_key='+os.getenv('giphy_key')+'&limit=10')
             data = json.loads(await response.text())
