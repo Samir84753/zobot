@@ -16,7 +16,7 @@ class Roast_Compliment_commands(commands.Cog):
         insult=requests.get(url).json()
         await ctx.send(insult['insult'])
         await session.close()
-    @commands.command(name='compliment' , help =": compliment")
+    @commands.command(name='compliment' , help =": compliment" ,aliases=['c'])
     async def compliment(self,ctx,user=''):
         session = aiohttp.ClientSession()
         await ctx.trigger_typing()
