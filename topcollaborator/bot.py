@@ -11,10 +11,6 @@ from discord.ext import commands
 from discord.ext.commands import CommandNotFound
 load_dotenv()
 client=commands.Bot(command_prefix='$')
-def test(word):
-    randomword=random.choice(word)
-    gif_choice = random.randint(0, 9)
-    return randomword,gif_choice
 @client.event
 async def on_ready():
     print('Logged in as {0.user}'.format(client))
@@ -30,15 +26,6 @@ async def on_command_error(ctx, error):
     await ctx.trigger_typing()
     if isinstance(error, CommandNotFound):
         await ctx.send('Uhh! There is no command of such sort. Try:"$help"')
-        embed = discord.Embed(colour=discord.Colour.blue())
-        session = aiohttp.ClientSession()
-        word=['God no','We dont do that here']
-        randomword,gif_choice=test(word)
-        response = await session.get('http://api.giphy.com/v1/gifs/search?q='+randomword+'&api_key='+os.getenv('giphy_key')+'&limit=10')
-        data = json.loads(await response.text())
-        embed.set_image(url=data['data'][gif_choice]['images']['original']['url'])
-        await session.close()
-        await ctx.send(embed=embed)
     
 
 # @client.command(name='greet',help=': simple greeting')
@@ -48,4 +35,5 @@ client.load_extension('cogs.reddit_commands')
 client.load_extension('cogs.gif_commands')
 client.load_extension('cogs.moderation')
 client.load_extension('cogs.fpl')
+client.load_extension('cogs.roast_and_compliment')
 client.run(os.getenv("discord_token"))

@@ -8,7 +8,6 @@ import json
 from dotenv import load_dotenv
 import os 
 import sys
-from discord.ext import commands
 from discord.ext.commands import CommandNotFound
 load_dotenv()
 class Reddit_commands(commands.Cog):
@@ -89,7 +88,7 @@ class Reddit_commands(commands.Cog):
             await ctx.send('Maybe there is no subreddit of that name. Try using a real subreddit name. ')
             embed = discord.Embed(colour=discord.Colour.blue())
             session = aiohttp.ClientSession()
-            word=['God no','We dont do that here']
+            word=['God no','confused']
             randomword,gif_choice=self.test(word)
             response = await session.get('http://api.giphy.com/v1/gifs/search?q='+randomword+'&api_key='+os.getenv('giphy_key')+'&limit=10')
             data = json.loads(await response.text())
@@ -99,7 +98,7 @@ class Reddit_commands(commands.Cog):
             
 
 
-    @commands.command(name='roast' ,help=' :summons random comment roasts from r/roastme',aliases=['ro'])
+    @commands.command(name='redditroast' ,help=' :summons random comment roasts from r/roastme',aliases=['rr'])
     async def roast(self,ctx):
         await ctx.trigger_typing()
         session = aiohttp.ClientSession()

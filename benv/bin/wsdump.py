@@ -1,4 +1,4 @@
-#!/home/samir/Documents/zobot/benv/bin/python3
+#!/home/samir/Documents/zobot/benv/bin/python
 
 import argparse
 import code

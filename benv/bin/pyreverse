@@ -1,4 +1,4 @@
-#!/home/samir/Documents/zobot/benv/bin/python3
+#!/home/samir/Documents/zobot/benv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
