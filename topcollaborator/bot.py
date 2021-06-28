@@ -36,4 +36,6 @@ client.load_extension('cogs.gif_commands')
 client.load_extension('cogs.moderation')
 client.load_extension('cogs.fpl')
 client.load_extension('cogs.roast_and_compliment')
+client.load_extension('cogs.urban')
+
 client.run(os.getenv("discord_token"))
