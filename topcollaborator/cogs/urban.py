@@ -15,7 +15,7 @@ class Urban_dictionary_commands(commands.Cog):
         try:
             url=self.url+str(search)
             defn=requests.get(url).json()
-            
+
             if len(defn['list'])>=2:
                 definition_One=defn['list'][0]['definition']
                 example_One=defn['list'][0]['example']
@@ -29,8 +29,7 @@ class Urban_dictionary_commands(commands.Cog):
                 embedmsg.add_field(name='Example 2',value=example_Two,inline=False)
         
                 await ctx.send(embed=embedmsg)
-
-			elif len(defn['list'])==1:
+            elif len(defn['list'])==1:
 				definition_One=defn['list'][0]['definition']
                 example_One=defn['list'][0]['example']
 
