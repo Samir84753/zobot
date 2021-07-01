@@ -37,7 +37,7 @@ class Urban_dictionary_commands(commands.Cog):
             else:
                 await ctx.send('No result found.')
         except:
-            await ctx.send('Error connecting to UrbanDictionary.')
+            await ctx.send('Error connecting to Urban Dictionary.')
         
         
         await session.close()
