@@ -14,6 +14,7 @@ class Urban_dictionary_commands(commands.Cog):
         await ctx.trigger_typing()
         try:
             url=self.url+str(search)
+            print(url)
             defn=requests.get(url).json()
 
             if len(defn['list'])>1:
@@ -21,7 +22,7 @@ class Urban_dictionary_commands(commands.Cog):
                 example_One=defn['list'][0]['example']
                 definition_Two=defn['list'][1]['definition']
                 example_Two=defn['list'][1]['example']
-                definition_Tnree=defn['list'][2]['definition']
+                definition_Three=defn['list'][2]['definition']
                 example_Three=defn['list'][2]['example']
 
                 embedmsg = discord.Embed(title="Urban Definition",colour=discord.Colour.blue())
