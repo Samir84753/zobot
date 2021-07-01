@@ -30,16 +30,15 @@ class Urban_dictionary_commands(commands.Cog):
         
                 await ctx.send(embed=embedmsg)
             elif len(defn['list'])==1:
-				definition_One=defn['list'][0]['definition']
+                definition_One=defn['list'][0]['definition']
                 example_One=defn['list'][0]['example']
-
                 embedmsg = discord.Embed(title="Urban Definition",colour=discord.Colour.blue())
                 embedmsg.add_field(name='Word',value=search,inline=False)
                 embedmsg.add_field(name='Definition',value=definition_One,inline=False)
                 embedmsg.add_field(name='Example',value=example_One,inline=False)
-        
+                
                 await ctx.send(embed=embedmsg)
-			
+            
             else:
                 await ctx.send('No result found.')
         except:
