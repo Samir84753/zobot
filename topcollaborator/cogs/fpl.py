@@ -27,7 +27,7 @@ class FPL_commands(commands.Cog):
             session=aiohttp.ClientSession()
             await ctx.trigger_typing()
             if gameweek==0:
-                temp=requests.get("https://fantasy.premierleague.com/api/entry/3604290/")
+                temp=requests.get("https://fantasy.premierleague.com/api/entry/1415048/")
                 temp=temp.json()
                 gameweek=temp['current_event']
                 gameweek=str(gameweek)
@@ -68,7 +68,7 @@ class FPL_commands(commands.Cog):
             session=aiohttp.ClientSession()
             await ctx.trigger_typing()
             if gameweek=='0':
-                temp=requests.get("https://fantasy.premierleague.com/api/entry/3604290/")
+                temp=requests.get("https://fantasy.premierleague.com/api/entry/1415048/")
                 temp=temp.json()
                 gameweek=temp['current_event']
                 gameweek=str(gameweek)
@@ -549,7 +549,7 @@ class FPL_commands(commands.Cog):
             session=aiohttp.ClientSession()
             await ctx.trigger_typing()
             if gameweek==0:
-                temp=requests.get("https://fantasy.premierleague.com/api/entry/3604290/")
+                temp=requests.get("https://fantasy.premierleague.com/api/entry/1415048/")
                 temp=temp.json()
                 gameweek=temp['current_event']
                 gameweek=str(gameweek)
